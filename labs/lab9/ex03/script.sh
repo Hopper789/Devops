@@ -6,27 +6,35 @@ echo -e "\033[1;34m\n=== Шаг 1: git rm --cached (удаление из инд
 mkdir -p project
 cd project
 git init
+
 echo -e "\033[1;34m\n=== Статус после изменения ===\033[0m"
 echo "test" > file
 git status
 git add file
+
 echo -e "\033[1;34m\n=== Статус после add ===\033[0m"
 git status
 git rm --cached file
+
 echo -e "\033[1;34m\n=== Статус после rm --cached ===\033[0m"
 git status
 git add file && git commit -m "add file"
+
 echo -e "\033[1;34m\n=== Статус после add + commit ===\033[0m"
 git status
 echo "test" >> file
 git add file
+
 echo -e "\033[1;34m\n=== Статус после изменения файла + add ===\033[0m"
 git status
 git restore --staged file
+
 echo -e "\033[1;34m\n=== Статус после restore --staged ===\033[0m"
 git status
 read -p "[Шаг 1] Нажми Enter для продолжения..."
+
 # 2. Демонстрация git commit --amend
+
 echo -e "\033[1;34m\n=== Шаг 2: git commit --amend (перезапись последнего
 коммита) ===\033[0m"
 git add file
@@ -40,6 +48,7 @@ echo -e "\033[1;34m\n=== Git log: ===\033[0m"
 git log --oneline
 echo -e "\033[1;34m\n=========\033[0m"
 read -p "[Шаг 2] Нажми Enter для продолжения..."
+
 # ───────────────────────────────────────────────
 # 3. Демонстрация git reset (мягкий / жёсткий)
 # ───────────────────────────────────────────────
