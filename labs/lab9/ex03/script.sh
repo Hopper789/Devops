@@ -62,34 +62,35 @@ echo "test" > file
 git add file && git commit -m "Initial commit"
 echo "test 2" >> file
 git add file && git commit -m "Second commit"
+
 echo -e "\033[1;34m\n=== Git log: ===\033[0m"
 git log --oneline
-echo -e "\033[1;34m\n=========\033[0m"
 echo -e "\033[1;34m\n=== Содержимое файла до reset --soft ===\033[0m"
 cat file
-echo -e "\033[1;34m\n=========\033[0m"
+
 echo -e "\033[1;31m\n=== reset --soft HEAD~1 ===\033[0m"
 git reset --soft HEAD~1
 echo -e "\033[1;34m\n=== Git log: ===\033[0m"
 git log --oneline
-echo -e "\033[1;34m\n=========\033[0m"
+
 echo -e "\033[1;34m\n=== Содержимое файла после reset --soft ===\033[0m"
 cat file
-echo -e "\033[1;34m\n=========\033[0m"
+
 echo -e "\033[1;34m\n=== Изменяем файл + add + commit ===\033[0m"
 echo "test 3" >> file
 git add file && git commit -m "Third commit"
+
 echo -e "\033[1;34m\n=== Git log: ===\033[0m"
 git log --oneline
-echo -e "\033[1;34m\n=========\033[0m"
+
 echo -e "\033[1;34m\n=== Содержимое файла до reset --hard ===\033[0m"
 cat file
-echo -e "\033[1;34m\n=========\033[0m"
+
 echo -e "\033[1;31m\n=== reset --hard HEAD~1 ===\033[0m"
 git reset --hard HEAD~1
 echo -e "\033[1;34m\n=== Git log: ===\033[0m"
 git log --oneline
-echo -e "\033[1;34m\n=========\033[0m"
+
 echo -e "\033[1;34m\n=== Содержимое файла после reset --hard ===\033[0m"
 cat file
 echo -e "\033[1;34m\n=========\033[0m"
