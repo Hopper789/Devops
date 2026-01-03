@@ -1,1 +1,4 @@
 *.git
+labs/lab9/ex*/project
+labs/lab9/ex*/repo
+
