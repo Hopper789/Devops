@@ -1,1 +1,1 @@
-echo "Hello from inside the container!"
+echo "Hello!"
