@@ -1,4 +1,5 @@
-FROM alpine:latest
-RUN apk update && apk add --no-cache curl git vim
-WORKDIR /home/student
-COPY script.sh ./script.sh
+FROM alpine:3.19
+WORKDIR /app
+# ADD https://miet.ru miet.html
+COPY https://miet.ru miet.html
+CMD ["sh"]

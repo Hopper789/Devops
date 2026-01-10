@@ -60,3 +60,9 @@ docker run --rm -it add-test
 docker run --rm -it copy-test
 ```
 Разница в том, что COPY протсо копирует архив, а ADD - распаковывет его (также ещё может скачивать файлы). Но скачивание через ADD считается плохой практикой, тк для удаления файла нужно будет создавать новый слой. Альтернатива RUN curl
+```
+ADD https://miet.ru miet.html
+COPY https://miet.ru miet.html
+```
+В первом случае всё работает, сборка запускается. Но COPY не может скачивать файлы и выдаёт ошибку
+```ERROR: failed to build: failed to solve: source can't be a URL for COPY```
