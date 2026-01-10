@@ -1,0 +1,9 @@
+FROM gcc:13.2 AS builder
+WORKDIR /app
+COPY app/main.c .
+RUN gcc main.c -o main
+
+FROM debian:bookworm-slim
+WORKDIR /app
+COPY --from=builder /app/main .
+CMD ["./main"]
