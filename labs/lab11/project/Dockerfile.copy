@@ -1,0 +1,4 @@
+FROM alpine:3.19
+WORKDIR /app
+COPY files.tar.gz .
+CMD ["sh"]
