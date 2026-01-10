@@ -66,3 +66,23 @@ COPY https://miet.ru miet.html
 ```
 В первом случае всё работает, сборка запускается. Но COPY не может скачивать файлы и выдаёт ошибку
 ```ERROR: failed to build: failed to solve: source can't be a URL for COPY```
+
+## Задание 9
+```
+docker run cmd-example
+docker run cmd-example echo "Hi, custom message"
+```
+При CMD следующий текст после ```docker run cmd-example <smth>``` будет заменять запуск по умолчанию (CMD) на <smth> после старта контейнера. Т.е. так можно переопределить запуск команд в CMD.
+При ENTRYPOINT аргументы после ```docker run cmd-example <smth>``` будут дополнять, а не заменять команду. Тогда эти команды будут эквивалентны:
+- ```docker run cmd-example + ENTRYPOINT ["echo", "Hello from DOCKER", "smth"]```
+- ```docker run cmd-example "smth" + ENTRYPOINT ["echo", "Hello from DOCKER"]```
+
+Интересный пример:
+```
+FROM alpine:latest
+ENTRYPOINT ["ping"]
+CMD ["google.com"]
+```
+При запуске ```docker run my-pinger <param>``` можно добавить свой сайт в качестве параметра и тогда будет выполнена команда ```ping <param>```
+
+## Задание 10
